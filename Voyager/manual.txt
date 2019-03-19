@@ -1,0 +1,9 @@
+1.-en un sitio limpio.
+2.-configurar la base.
+3.-entrar al citio.
+
+4.-composer require tcg/voyager
+
+5.-php artisan voyager:install
+
+6.-php artisan voyager:admin your@email.com --create --> para crear el usuario admin

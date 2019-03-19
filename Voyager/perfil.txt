@@ -1,0 +1,7 @@
+1.-ezq_boton derecho perfil
+
+2.-modificar la ruta en env del servidor localhost:8000
+
+cambiar a APP_URL=http://localhost:8000
+
+reiniciar servidor

@@ -1,0 +1,20 @@
+{
+    "default":"option1",
+    "options":{
+        "options1": "Hombre",
+        "options2": "Mujer"
+    }
+}
+
+###########################3333
+Para ver las Opciones.
+
+https://docs.laravelvoyager.com/core-concepts/bread-builder#additional-field-options
+
+
+#################################33
+Para las fechas
+
+{
+    "format" : "%d-%m-%Y"
+}

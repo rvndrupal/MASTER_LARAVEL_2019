@@ -1,0 +1,10 @@
+1.- https://github.com/caouecs/Laravel-lang
+
+2.-composer require caouecs/laravel-lang:~3.0
+
+3.-ir a vendor->caouecs->src->copiar "es" y   pegarlo en resource->lang->pegar
+
+4.-confi->app.php
+
+locale => 'es'
+
