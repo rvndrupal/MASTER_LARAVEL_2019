@@ -1,8 +1,8 @@
 1.-composer create-project --prefer-dist laravel/laravel blog
 
-2.-opcional  composer create-project laravel/laravel my_project 5.5.* 
+2.-opcional  composer create-project laravel/laravel my_project 5.5.* --> se verifica con 5.6
 
-3.-Laravel collective estando en el proyecto--> composer require laravelcollective/html
+3.-Laravel collective estando en el proyecto--> composer require laravelcollective/html 5.5.*  -->problemas
 
 registrar los provider de laravel collective.
 
@@ -19,7 +19,7 @@ Aliase.
 
 4.-Instalar Shinobi
 
-composer require caffeinated/shinobi
+composer require caffeinated/shinobi ^3.1
 
 config->app.php ir a provider
 
