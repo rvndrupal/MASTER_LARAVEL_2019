@@ -1,0 +1,5 @@
+  public function destroy(Product $product)
+    {
+        $product->delete();
+        return back()->with('info','Eliminado Correctamente');
+    }

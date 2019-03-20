@@ -1,0 +1,6 @@
+1.Instalar laravel versión. 
+composer create-project laravel/laravel my_project 5.5.* 
+
+ultimo--> composer create-project --prefer-dist laravel/laravel blog 
+
+Correr servidor. php artisan serve

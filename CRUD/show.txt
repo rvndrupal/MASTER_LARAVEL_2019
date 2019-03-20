@@ -1,0 +1,5 @@
+public function show(Product $product)
+    {
+        //dd($product->id);
+        return view('products.show', compact('product'));
+    }

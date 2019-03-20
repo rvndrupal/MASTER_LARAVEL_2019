@@ -1,0 +1,9 @@
+1.-crear
+
+php artisan make:auth
+
+
+2.-Redireccionar despues de login
+app->http->auth->login
+
+Cambias la ruta.

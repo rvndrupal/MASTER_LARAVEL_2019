@@ -1,0 +1,2 @@
+1.-crear seeder
+php artisan make:seeder PermissionsTableSeeder

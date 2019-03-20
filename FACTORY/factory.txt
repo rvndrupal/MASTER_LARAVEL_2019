@@ -1,0 +1,19 @@
+Directo.
+
+ factory(App\Curso::class, 5)->create();
+
+ Para crear un rol en shinobi se usa 
+ use Caffeinated\Shinobi\Models\Role;
+
+   Role::create([
+            'name'  => 'Admin',
+            'slug'  => 'admin',
+            'special' => 'all-access'
+        ]);
+
+        App\User::create([
+            'name'=>'rodrigo',
+            'email'=>'rodrigo@gmail.com',
+            'password'=>bcrypt('rorro'),
+
+        ]);

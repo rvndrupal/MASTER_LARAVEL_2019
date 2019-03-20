@@ -1,0 +1,11 @@
+1.- basicos.
+
+https://github.com/fzaninotto/Faker
+
+'name'=> $faker->sentence,
+'description'=> $faker->sentence,
+
+'name'=>$faker->name
+'email'=>$faker->email
+'password'=>$faker->str_random(10),
+'name'=>$faker->name

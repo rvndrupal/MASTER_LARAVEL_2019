@@ -1,0 +1,7 @@
+public function store(Request $request)
+    {
+        $product=Product::create($request->all());
+        
+        return redirect()->route('products.index')
+        ->with('info','Producto guardado con exito');
+    }
