@@ -5,3 +5,22 @@ public function update(Request $request, Product $product)
         ->with('info','Producto actualizado con exito');
 
     }
+
+ public function update(Request $request, User $user)
+    {
+        //primero actualizamos el usuario
+        //$user->update($request->all());
+        $user = User::find($user->id);
+        $user->name =$request->get('name');
+        $user->email = $request->get('email');
+        $user->password = bcrypt($request->get('password'));
+        $user->save();
+        
+
+        //actualizamos los roles
+        $user->roles()->sync($request->get('roles'));
+
+        return redirect()->route('users.edit', $user->id)
+            ->with('info', 'Usuario actualizado con exito');
+
+    }
