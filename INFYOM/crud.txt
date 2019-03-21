@@ -1,0 +1,15 @@
+1.-php artisan infyom:scaffold $MODEL_NAME
+
+2.-Problema en la migracion agregar en app->providers->appserviceprovider
+
+use Illuminate\Support\Facades\Schema;
+
+public function boot()
+{
+    Schema::defaultStringLength(191);
+}
+
+3.-Para las relaciones.
+ponente_id integer:unsigned:foreign,ponentes,id select
+
+campo a relacionar tipo tabla a relacionar campo a relacionar y salida select
