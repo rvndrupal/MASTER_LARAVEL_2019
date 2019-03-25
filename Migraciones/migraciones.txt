@@ -4,8 +4,17 @@ php artisan migrate
 2.-con seeders.
 php artisan migrate:refresh --seed
 
+php artisan migrate:fresh --seed  -->tira y genera todo
+
 3.-actualizar los paquetes json.
 composer install
 
+
+###################
+Tabla pivote
+
+php artisan make:migration create_table_course_student  
+
+El orden es muy importante.
 
 

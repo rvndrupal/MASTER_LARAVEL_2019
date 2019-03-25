@@ -1,3 +1,16 @@
 1.-Crear modelo simple con todo.
 
 php artisan make:model Product -a
+
+###################333
+Agregar constantes dentro del modelo y los fillables
+
+	protected $fillable = ['teacher_id', 'name', 'description', 'picture', 'level_id', 'category_id', 'status'];
+
+	const PUBLISHED = 1;
+	const PENDING = 2;
+	const REJECTED = 3;
+
+##################################
+
+

@@ -1,0 +1,78 @@
+1.-Tipos de campos.
+
+Relacion de campos.
+
+Schema::create('roles', function (Blueprint $table) {
+    		$table->increments('id');
+    		$table->string('name')->comment('Nombre del rol de usuario');
+    		$table->text('description');
+    		$table->timestamps();
+	    });
+
+        Schema::create('users', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('role_id')->default(\App\Role::STUDENT);
+            $table->foreign('role_id')->references('id')->on('roles');
+            $table->string('name');
+	        $table->string('last_name')->nullable();
+	        $table->string('slug');
+            $table->string('email')->unique();
+            $table->string('password')->nullable();
+	        $table->string('picture')->nullable();
+        });
+#######
+otros ejemplos
+
+
+ public function up()
+    {
+        Schema::create('teachers', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('title')->nullable();
+            $table->text('biography')->nullable();
+            $table->string('website_url')->nullable();
+            $table->timestamps();
+        });
+    }
+
+##############
+Relaciones con campos enum de constanates en el modelo.
+public function up()
+    {
+        Schema::create('courses', function (Blueprint $table) {
+            $table->increments('id');
+	        $table->unsignedInteger('teacher_id');
+	        $table->foreign('teacher_id')->references('id')->on('teachers');
+	        $table->unsignedInteger('category_id');
+	        $table->foreign('category_id')->references('id')->on('categories');
+	        $table->unsignedInteger('level_id');
+	        $table->foreign('level_id')->references('id')->on('levels');
+	        $table->string('name');
+	        $table->text('description');
+	        $table->string('slug');
+	        $table->string('picture')->nullable();
+	        $table->enum('status', [
+	        	\App\Course::PUBLISHED, \App\Course::PENDING, \App\Course::REJECTED
+	        ])->default(\App\Course::PENDING);
+	        $table->boolean('previous_approved')->default(false);
+	        $table->boolean('previous_rejected')->default(false);
+            $table->timestamps();
+            $table->softDeletes();
+        });
+    }
+
+#######################
+TABLA PIVOTE.
+
+ public function up()
+    {
+        Schema::create('course_student', function (Blueprint $table) {
+	        $table->unsignedInteger('course_id');
+	        $table->foreign('course_id')->references('id')->on('courses');
+	        $table->unsignedInteger('student_id');
+	        $table->foreign('student_id')->references('id')->on('students');
+        });
+    }
+
