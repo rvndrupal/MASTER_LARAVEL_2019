@@ -1,0 +1,37 @@
+1.- intervention image.
+http://image.intervention.io/getting_started/installation
+
+composer  require intervention/image
+
+#############33
+
+2.-Laravel debugbar.
+https://github.com/barryvdh/laravel-debugbar
+
+se ejeucta si en el archivo .env esta en true
+
+composer require barryvdh/laravel-debugbar --dev
+
+########################
+
+3.-https://github.com/yajra/laravel-datatables
+Datatables.
+
+composer require yajra/laravel-datatables-oracle:~8.4
+
+configurar alias y providers  config->app
+
+'providers' => [
+    ...,
+    Yajra\DataTables\DataTablesServiceProvider::class,
+]
+
+'aliases' => [
+    ...,
+    'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+]
+
+
+
+
+
