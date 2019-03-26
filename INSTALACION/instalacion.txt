@@ -4,3 +4,15 @@ composer create-project laravel/laravel my_project 5.5.*
 ultimo--> composer create-project --prefer-dist laravel/laravel blog 
 
 Correr servidor. php artisan serve
+
+
+###############################33
+Actualizar los paquetes.
+
+composer update
+
+############################
+Crear el apk
+
+php artisan key:generate
+php artisan config:cache
