@@ -1,2 +1,43 @@
 1.-crear seeder
 php artisan make:seeder PermissionsTableSeeder
+
+El seeder.
+
+use Illuminate\Database\Seeder;
+use Caffeinated\Shinobi\Models\Permission;
+
+//Products
+        Permission::create([
+            'name' => 'Navegar productos',
+            'slug' => 'products.index',
+            'description'  => 'Lista y navega todos los productos del sistema',
+
+        ]);
+
+La ruta es lo más importante.
+#######################3######################
+Crear los Seeder.
+
+use Illuminate\Database\Seeder;
+use Caffeinated\Shinobi\Models\Role;
+
+public function run()
+    {
+         $this->call(PermissionsTableSeeder::class);
+         factory(App\Product::class, 100)->create();
+         factory(App\User::class, 1)->create();
+
+
+         Role::create([
+            'name'  => 'Admin',
+            'slug'  => 'admin',
+            'special' => 'all-access'
+        ]);
+
+        App\User::create([
+            'name'=>'rodrigo',
+            'email'=>'rodrigo@gmail.com',
+            'password'=>bcrypt('rorro'),
+
+        ]);
+    }
