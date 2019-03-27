@@ -4,6 +4,8 @@ php artisan make:auth
 
 
 2.-Redireccionar despues de login
-app->http->auth->login
+htpp->Controllers->Auth->LoginController, lo mismo para el registro y reset
+
+Cambiar el  protected $redirectTo = '/posts';
 
 Cambias la ruta.

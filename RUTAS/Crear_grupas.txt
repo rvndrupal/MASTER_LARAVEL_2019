@@ -1,0 +1,12 @@
+Route::group(['middleware' => ['auth']], function () {
+	Route::resource('posts', 'PostController');
+	Route::put('/posts/{id}/restore', 'PostController@restore')->name('posts.restore');
+});
+
+
+###################
+Con un prefijo seria.
+
+Route::group(['middleware' => ['auth'], 'prefix'=>'post'], function(){
+
+});

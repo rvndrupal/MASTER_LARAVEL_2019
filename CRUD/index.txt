@@ -5,4 +5,7 @@ public function index()
         dd($products);
 
         return view('products.index', compact('products')); 
+
+        $posts=Post::paginate(5);
+        $posts=Post::all();
     }
