@@ -9,3 +9,13 @@ https://github.com/fzaninotto/Faker
 'email'=>$faker->email
 'password'=>$faker->str_random(10),
 'name'=>$faker->name
+
+
+##################33
+$factory->define(App\Post::class, function (Faker $faker) {
+    return [
+        'user_id' => \App\User::all()->random(), -->poblar campo relacionado con id aleatorio
+	    'title' => $faker->paragraph(1),
+	    'body' => $faker->text(400)
+    ];
+});

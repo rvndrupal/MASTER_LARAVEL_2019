@@ -1,0 +1,3 @@
+1.-Nombre del usuario
+
+{{ Auth::user()->name }}  -->nombre del usuario.

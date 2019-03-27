@@ -2,6 +2,8 @@ Directo.
 
  factory(App\Curso::class, 5)->create();
 
+ factory(\App\Post::class, 50)->create();
+
  Para crear un rol en shinobi se usa 
  use Caffeinated\Shinobi\Models\Role;
 
@@ -17,3 +19,8 @@ Directo.
             'password'=>bcrypt('rorro'),
 
         ]);
+
+###################
+Crear un archivo Seeder
+
+php artisan make:seed User
