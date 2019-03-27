@@ -1,0 +1,23 @@
+1.-Tipos de cmapos.
+
+Schema::create('posts', function (Blueprint $table) {
+    $table->increments('id');
+    $table->unsignedInteger('user_id');
+    $table->foreign('user_id')->references('id')->on('users');
+    $table->string( 'title')->notNullable()->unique();
+    $table->text('body')->notNullable();
+    $table->timestamps();
+    $table->softDeletes();  -->Para que estos funciones se modifica el modelo.
+});
+
+###############
+Modelo para los softDeletes
+
+Importar 
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+dentro del modelo incluir.
+
+class Post extends Model
+{
+    use SoftDeletes;
