@@ -1,0 +1,4 @@
+$this->validate(request(), [
+    'title' => 'required|unique:posts,title|min:10|max:150',  -->no se puede repetir el titulo en la tabla post
+    'body' => 'required'
+]);

@@ -16,7 +16,7 @@
         <form method="POST" action="{{ $route }}">
             @csrf
 
-            @method($method)
+            @method($method)  //super importante para el metodo sea post o put
 
             <div class="form-group">
                 <label for="title">Título</label>

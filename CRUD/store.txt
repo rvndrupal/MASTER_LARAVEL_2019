@@ -22,3 +22,8 @@ public function store(Request $request,  User $user)
         return redirect()->route('users.index')
         ->with('info','Producto guardado con exito');
     }
+
+##########################################3
+Validar el id del usuario, para insertar el valor del id del usuario.
+
+request()->merge(['user_id' => auth()->id()]); -->Obtienes el valor del id

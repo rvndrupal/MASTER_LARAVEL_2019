@@ -28,7 +28,7 @@ class PostController extends Controller
     		'title' => 'required|unique:posts,title|min:10|max:150',
 		    'body' => 'required'
 	    ]);
-    	Post::create(request()->input());
+    	Post::create(request()->input()); //inserta en el campo
     	return back()->with('message', ['success', 'Post creado correctamente']);
     }
 
@@ -42,7 +42,7 @@ class PostController extends Controller
 
     public function update ($id) {
 	    $this->validate(request(), [
-		    'title' => 'required|unique:posts,title,'.$id.'|min:10|max:150',
+		    'title' => 'required|unique:posts,title,'.$id.'|min:10|max:150', //para poder validar el mismo campo $id
 		    'body' => 'required'
 	    ]);
 
