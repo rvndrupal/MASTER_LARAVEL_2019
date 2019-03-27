@@ -1,0 +1,37 @@
+Queda el middleware asi.
+
+//Se crean las rutas del sistema
+//MUY IMPORTANTE AGREGAR EL MIDDLAWERE AL ARCHIVO kERNEL.PHP
+
+Route::middleware(['auth'])->group(function(){
+
+    require __DIR__ . '/web/products.php';
+    require __DIR__ . '/web/roles.php';
+    require __DIR__ . '/web/usuarios.php';
+
+    
+});
+
+//se crea una carpeta web en Routes y se crean los archivos php.
+
+Route::post('products/store', 'ProductController@store')->name('products.store')
+    ->middleware('permission:products.create');
+
+    Route::get('products', 'ProductController@index')->name('products.index')
+    ->middleware('permission:products.index');
+
+    Route::get('products/create' , 'ProductController@create')->name('products.create')
+    ->middleware('permission:products.create');
+
+    Route::put('products/{product}', 'ProductController@update')->name('products.update')
+    ->middleware('permission:products.edit');
+
+    Route::get('products/{product}', 'ProductController@show')->name('products.show')
+    ->middleware('permission:products.show');
+
+    Route::delete('products/{product}', 'ProductController@destroy')->name('products.destroy')
+    ->middleware('permission:products.destroy');
+
+    Route::get('products/{product}/edit', 'ProductController@edit')->name('products.edit')
+    ->middleware('permission:products.edit');
+
