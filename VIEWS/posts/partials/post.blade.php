@@ -13,7 +13,7 @@
                     <a href="{{ route('posts.show', ['id' => $post->id]) }}" class="btn btn-info">Detalle</a>
                     <a href="{{ route('posts.edit', ['id' => $post->id]) }}" class="btn btn-secondary">Editar</a>
 
-                    @if($post->trashed())
+                    @if($post->trashed())//solo se muestra cuando son eliminados de forma lógica.
                         <form method="POST" class="float-right" action="{{ route('posts.restore', ['id' => $post->id]) }}">
                             @csrf
                             @method('PUT')

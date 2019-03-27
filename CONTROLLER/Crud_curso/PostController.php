@@ -8,6 +8,7 @@ class PostController extends Controller
 {
     public function index () {
 		$posts = Post::paginate(5);
+		//$posts = Post::withTrashed()->paginate(5); los que estan eliminados de forma lógica
 		return view('posts.index', compact( 'posts'));
     }
 
@@ -43,7 +44,8 @@ class PostController extends Controller
     public function update ($id) {
 	    $this->validate(request(), [
 		    'title' => 'required|unique:posts,title,'.$id.'|min:10|max:150', //para poder validar el mismo campo $id
-		    'body' => 'required'
+				'body' => 'required'
+				//mut importante lo del id
 	    ]);
 
 	    $post = Post::findOrFail($id);
@@ -53,7 +55,7 @@ class PostController extends Controller
 
     public function destroy ($id) {
     	$post = Post::findOrFail($id);
-    	$post->delete();
+    	$post->delete(); //lo borra de manera lógica
 	    return back()->with('message', ['success', 'Post eliminado correctamente']);
     }
 

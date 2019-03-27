@@ -40,3 +40,10 @@ Route::post('products/store', 'ProductController@store')->name('products.store')
     Route::get('products/{product}/edit', 'ProductController@edit')->name('products.edit')
     ->middleware('permission:products.edit');
 
+###############################3
+Del curso crud basico
+Route::group(['middleware' => ['auth']], function () {
+	Route::resource('posts', 'PostController');
+	Route::put('/posts/{id}/restore', 'PostController@restore')->name('posts.restore');
+});
+

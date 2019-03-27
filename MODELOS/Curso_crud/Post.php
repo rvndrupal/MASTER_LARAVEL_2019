@@ -20,8 +20,10 @@ class Post extends Model
 	    });
     }
 
-	public function newQuery() {
+	public function newQuery() { 
 		$query = parent::newQuery();
 		return $query->withTrashed();
+		//esto hace la magia para que este o no este eliminado lógico aprescan los campos 
+		// y las rutas
 	}
 }
