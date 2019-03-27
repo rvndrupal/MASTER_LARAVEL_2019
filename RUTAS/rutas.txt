@@ -1,3 +1,8 @@
+1.- Conocer las rutas.
+
+php artisan route:list
+
+
 Queda el middleware asi.
 
 //Se crean las rutas del sistema

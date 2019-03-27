@@ -1,0 +1,33 @@
+1.-Saber si el usuario es el administrador.
+Se crea una función en el modelo user.
+
+public function isAdmin()
+{
+    return $this->attributes['id']===1;
+}
+
+###########################
+Crear una Politica.
+
+php artisan make:policy PostPolicy
+
+
+####################
+1.-Se crea la carpeta policies con el archivo.
+
+2.-Registrar la politica htpp->providers->AuthServiceProvider.php
+
+Poner esto la información del modelo.
+
+Verificar el use.
+use App\Policies\PostPolicy;
+
+ protected $policies = [
+        Post::class => PostPolicy::class
+    ];
+
+#######################
+
+Ahora si definiendo las politicas.
+
+
