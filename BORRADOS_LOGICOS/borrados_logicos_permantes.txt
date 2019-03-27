@@ -1,0 +1,53 @@
+1.- rutas
+Route::delete('/posts/{id}/destroy', 'PostController@destroy')->name('posts.destroy'); -->logico
+Route::delete('/posts/{id}/delete', 'PostController@delete')->name('posts.delete'); --> pemanente
+
+Controlador.
+
+ public function destroy ($id) {
+    	$post = Post::findOrFail($id);
+    	$post->delete();//borra logico
+	    return back()->with('message', ['success', 'Post eliminado correctamente']);
+		}
+		
+		public function delete($id) {
+    	$post = Post::findOrFail($id);
+    	$post->forceDelete();//borra definitivo
+	    return back()->with('message', ['success', 'Post eliminado correctamente']);
+    }
+
+    public function restore ($id) {
+		Post::where('id', $id)->restore(); //restaurar
+	    return back()->with('message', ['success', 'Post restaurado correctamente']);
+    }
+
+Vista.
+
+<div class="card-footer">
+                <div class="float-right">
+                    <a href="{{ route('posts.show', ['id' => $post->id]) }}" class="btn btn-info">Detalle</a>
+                    <a href="{{ route('posts.edit', ['id' => $post->id]) }}" class="btn btn-secondary">Editar</a>
+
+                    @if($post->trashed())
+                        <form method="POST" class="float-right" action="{{ route('posts.restore', ['id' => $post->id]) }}">
+                            @csrf
+                            @method('PUT')
+                            <input type="submit" class="btn btn-default ml-2" value="Restaurar" />
+                        </form>
+                    @endif
+
+                    <form method="POST" class="float-right" action="{{ route('posts.delete', ['id' => $post->id]) }}">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" class="btn btn-danger ml-3" value="Eliminar permanente" />
+                    </form>
+
+                    <form method="POST" class="float-right" action="{{ route('posts.destroy', ['id' => $post->id]) }}">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" class="btn btn-danger ml-2" value="Eliminar" />
+                    </form>
+
+                    
+                </div>
+            </div>
