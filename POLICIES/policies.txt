@@ -5,7 +5,7 @@ public function isAdmin()
 {
     return $this->attributes['id']===1;
 }
-
+fgdfg
 ###########################
 Crear una Politica.
 

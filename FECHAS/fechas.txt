@@ -1,0 +1,35 @@
+1.- Generar un valor Boolean.
+
+Es para este valor de la base de Datos.
+
+$table->boolean('published')->default(false);
+
+public function getPublishedAttribute ($value)
+{
+    return $value ? 'Si': 'No';
+}
+
+
+###########################3
+En la zona horario checar a que zona pertenece esta en:
+
+app->config->app.php --> 'timezone' => 'UTC', 
+
+-->Significa hora local actual
+
+###################################
+Utilizar carbon.
+
+ public function store () {
+	    $date = Carbon::createFromFormat('Y-m-d H:i:s', Carbon::parse(request('datetime')), request('timezone'));
+        //selecciona la fecha dependiendo el campo de registro de la fecha
+	    $date->setTimezone(config('app.timezone'));-->//toma la zona horaria que configuramos arriba
+	    Tweet::create([
+		    'tweet' => request('tweet'),
+		    'timezone' => request('timezone'),
+		    'original_datetime' => Carbon::parse(request('datetime'))->toDateTimeString(),
+		    'published_at' => Carbon::parse($date)->toDateTimeString()-->Aqui se utiliza el valor de Date.
+	    ]);
+	    return redirect(route('tweets.list'));
+    }
+
