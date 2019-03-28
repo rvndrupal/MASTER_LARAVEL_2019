@@ -33,3 +33,13 @@ Utilizar carbon.
 	    return redirect(route('tweets.list'));
     }
 
+############################
+Trae todas las zonas horarias del mundo.
+<select class="form-control" id="timezones" name="timezone">
+    @foreach(DateTimeZone::listIdentifiers(DateTimeZone::ALL) as $timezone)
+        <option value="{{ $timezone }}">{{ $timezone }}</option>
+    @endforeach
+</select>
+
+
+

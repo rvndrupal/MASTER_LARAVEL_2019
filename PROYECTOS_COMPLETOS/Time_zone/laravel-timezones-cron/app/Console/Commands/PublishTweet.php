@@ -14,6 +14,7 @@ class PublishTweet extends Command
      * @var string
      */
     protected $signature = 'social:publish_tweets';
+    //se crea el comando social:publish_tweets en consola
 
     /**
      * The console command description.
@@ -39,12 +40,14 @@ class PublishTweet extends Command
      */
     public function handle()
     {
-	    $date = Carbon::createFromFormat('Y-m-d H:i:s', now(), config('app.timezone'));
-	    $tweet = Tweet::where('published_at', '<=', $date->format('Y-m-d H:i:s'))->where('published', false)->first();
+        $date = Carbon::createFromFormat('Y-m-d H:i:s', now(), config('app.timezone'));
+        //fecha si la fecha actual es mayor que la fecha tiene que publicar utiliza la zona horaria de nuestra aplicacion
+        $tweet = Tweet::where('published_at', '<=', $date->format('Y-m-d H:i:s'))->where('published', false)->first();
+        //la publicacion se a menor a la fecha actual
 	    if ($tweet) {
 		    $tweet->published = true;
 		    //TODO ¡publicar en twitter!
-		    $tweet->save();
+		    $tweet->save(); //actualiza el twwet a save lo pasa a true
 	    }
     }
 }

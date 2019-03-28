@@ -1,0 +1,11 @@
+1.- php artisan make:command PublishTweet
+
+2.-Se encuentra en app->console->commands.
+
+3.- Crear el nombre 
+
+protected $signature = 'social:publish_tweets';
+    //se crea el comando social:publish_tweets en consola
+
+#########################->Descripción del comando
+protected $description = 'Publicación de tweets automáticos';
