@@ -16,3 +16,8 @@ Crear el apk
 
 php artisan key:generate
 php artisan config:cache
+
+######################3
+Para los paquetes de node_modules.
+
+npm install
