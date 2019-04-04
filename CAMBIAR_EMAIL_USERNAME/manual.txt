@@ -1,0 +1,20 @@
+https://styde.net/crear-login-personalizado-en-laravel/
+
+la magia es esta cambiar en 
+C:\laragon\www\roles_pru\vendor\laravel\framework\src\Illuminate\Foundation\Auth\AuthenticatesUsers.php
+
+esto
+
+ /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        //cambio aqui
+        //return 'email';
+        return 'username';
+    }
+
+Eso es todo
