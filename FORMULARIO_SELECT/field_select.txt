@@ -1,0 +1,2 @@
+   <h3>Lista de Permisos</h3>
+    {!! Form::select('permissions[]', $permissions ,null, ['class' => 'form-control ','multiple']) !!}

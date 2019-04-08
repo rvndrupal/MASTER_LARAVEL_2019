@@ -13,3 +13,10 @@ public function boot()
 ponente_id integer:unsigned:foreign,ponentes,id select
 
 campo a relacionar tipo tabla a relacionar campo a relacionar y salida select
+
+######################################3
+seguir la documentacion pero al final de poner los archivos hacer este comando sino no jala 
+
+
+php artisan infyom:publish
+
