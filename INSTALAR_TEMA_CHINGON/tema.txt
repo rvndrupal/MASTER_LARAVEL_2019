@@ -1,0 +1,7 @@
+https://github.com/acacha/adminlte-laravel
+
+1.-El compositor global requiere " acacha / adminlte-laravel-installer "
+
+2.-adminlte-laravel install
+
+listo con eso jala muy chingon
