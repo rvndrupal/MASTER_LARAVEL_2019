@@ -2,7 +2,7 @@ Laravel collective.
 
 https://laravelcollective.com/docs/master/html
 
-composer require laravelcollective/html
+composer require laravelcollective/html ^5.7
 
 Registrar provider.
 
@@ -34,3 +34,9 @@ Service Provider
 Caffeinated\Shinobi\ShinobiServiceProvider::class
 
 composer require caffeinated/shinobi
+
+
+#########################################################
+Documentación de Shinobi.
+
+https://github.com/caffeinated/shinobi/wiki
