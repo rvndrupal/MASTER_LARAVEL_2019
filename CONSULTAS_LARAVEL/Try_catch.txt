@@ -1,0 +1,76 @@
+para poder utilizar
+
+use Illuminate\Support\Facades\DB;
+
+poner los modelos
+
+use App\Proveedor;
+use App\Persona;
+
+
+
+public function store(Request $request)
+    {
+        if (!$request->ajax()) return redirect('/');
+        
+        try{
+            DB::beginTransaction();
+            $persona = new Persona();
+            $persona->nombre = $request->nombre;
+            $persona->tipo_documento = $request->tipo_documento;
+            $persona->num_documento = $request->num_documento;
+            $persona->direccion = $request->direccion;
+            $persona->telefono = $request->telefono;
+            $persona->email = $request->email;
+            $persona->save();
+
+            $proveedor = new Proveedor();
+            $proveedor->contacto = $request->contacto;
+            $proveedor->telefono_contacto = $request->telefono_contacto;
+            $proveedor->id = $persona->id;
+            $proveedor->save();
+
+            DB::commit();
+
+        } catch (Exception $e){
+            DB::rollBack();
+        }
+
+        
+        
+    }
+
+################# actualizar
+
+ public function update(Request $request)
+    {
+        if (!$request->ajax()) return redirect('/');
+        
+        try{
+            DB::beginTransaction();
+
+            //Buscar primero el proveedor a modificar
+            $proveedor = Proveedor::findOrFail($request->id);
+
+            $persona = Persona::findOrFail($proveedor->id);
+
+            $persona->nombre = $request->nombre;
+            $persona->tipo_documento = $request->tipo_documento;
+            $persona->num_documento = $request->num_documento;
+            $persona->direccion = $request->direccion;
+            $persona->telefono = $request->telefono;
+            $persona->email = $request->email;
+            $persona->save();
+
+            
+            $proveedor->contacto = $request->contacto;
+            $proveedor->telefono_contacto = $request->telefono_contacto;
+            $proveedor->save();
+
+            DB::commit();
+
+        } catch (Exception $e){
+            DB::rollBack();
+        }
+
+    }
