@@ -1,0 +1,18 @@
+Vue.component('mensaje',{
+
+    data(){
+        return{
+            saludo:"Hola desde el primer componente todo ok"
+        }
+        
+    },
+
+    template:`
+        <div>
+            <h1>Saludos desde el componente</h1>
+
+            <p> {{ saludo }}</p>
+        </div>
+    
+    `
+});
