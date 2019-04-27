@@ -1,0 +1,31 @@
+Consultas basicas.
+
+select * from clientes;
+
+### where
+
+select cli_id from clientes where cli_id >20
+
+select nombre from clientes where cli_id>30
+
+select prod_descripcion from productos where prod_precio > 200
+
+select prod_descripcion, nombre from productos
+where prod_precio > 200 and 
+prod_status=1
+
+###### where con parentesis
+
+select * from productos
+where prod_precio > 200 and 
+(prod_status=0 or (prod_status=1 and prod_prov=97))
+
+traeme a todo dnde precio sea mañor a 200 y produ_status sea 0 or prod_status=1 y prod_prov=97
+
+######################
+select * from  ventas where 
+fecha > '2018-01-04' and fecha < '2018-01-25' and cliente_id<> 1
+and ventas_totales > 1000
+
+traeme todo de ventas donde la fechas esten entre los periodos y el cliente_id sea diferente a 1 y las ventas totales sean mayores a 1000
+
