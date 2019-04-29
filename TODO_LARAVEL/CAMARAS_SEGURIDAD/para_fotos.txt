@@ -1,0 +1,5 @@
+############################
+
+PARA EL PROYECTO DE CAMARAS DE SEGURIDAD QUE FUNCIONE LAS IMAGENES
+
+//    //ejecutar  php artisan storage:link    para que funcione

@@ -21,3 +21,11 @@ php artisan config:cache
 Para los paquetes de node_modules.
 
 npm install
+
+
+
+############################
+
+PARA EL PROYECTO DE CAMARAS DE SEGURIDAD QUE FUNCIONE LAS IMAGENES
+
+//    //ejecutar  php artisan storage:link    para que funcione
