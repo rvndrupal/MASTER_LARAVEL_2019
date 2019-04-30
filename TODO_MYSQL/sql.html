@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Consultas SQL</title>
+</head>
+<body>
+
+    <h1>Union con la clausula where</h1>
+    <img src="img/Union_where.PNG" alt="">
+    <p>Donde Ventas_Cliid=Cli_id es decir cada Venta se compare con el cliente id</p>
+
+    <hr>
+
+    <h1>Union con la clausula where con alias As</h1>
+    <img src="img/Union_where_as.PNG" alt="">
+    <p>Ahora cada campo tiene un alias</p>
+    <hr>
+
+
+    <h1>Union de cuatro tablas con alias</h1>
+    <img src="img/Union_where_cuatro_tablas.PNG" alt="">
+    <ul>
+        <li>Se unen las cuatro tablas por el where y se les pone un alias, nota el alias se tiene que poner en los campos que se buscan</li>
+        <li> Es decir  ejemplo clientes as c --> cuando busque algo de clientes seria c.Cli_RazonSocial  ejemplo</li>   
+    </ul>
+    <hr>
+
+
+    <h1>Union de cinco tablas con alias</h1>
+    <img src="img/Unioc_where_cinco.PNG" alt="">
+    <ul>
+        <li>Se unen las cuatro tablas por el where y se les pone un alias, nota el alias se tiene que poner en los campos que se buscan</li>
+        <li>En este ejemplo se agrega provedores as r  y su union es p.Prod_Provid=r.Prov_id</li>   
+    </ul>
+    <hr>
+
+
+
+
+
+
+    
+</body>
+</html>
