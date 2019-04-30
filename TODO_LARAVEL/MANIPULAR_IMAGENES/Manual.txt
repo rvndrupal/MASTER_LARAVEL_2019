@@ -1,0 +1,45 @@
+1.-Agregar interventin image 
+
+http://image.intervention.io/
+
+composer require intervention/image
+
+2.-Instalar yajra
+
+para 5.6 es la 8.x
+composer require yajra/laravel-datatables-oracle:"~8.x"
+
+
+agregar en config->app
+
+Collective\Html\HtmlServiceProvider::class,
+Yajra\Datatables\DatatablesServiceProvider::class,
+Intervention\Image\ImageServiceProvider::class,
+
+Los providers
+
+#######los Alias
+
+'Form' => Collective\Html\FormFacade::class,
+'Html' => Collective\Html\HtmlFacade::class,
+
+#############################################
+
+2.-Se crea el model y la migracion de Galleries
+
+public function up()
+    {
+        Schema::create('galleries', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title')->comment('título de la imagen');
+            $table->string('caption')->comment('caption de la imagen');
+            $table->string('image')->comment('nombre del archivo de imagen');
+            $table->string('mime_type');
+            $table->string('original_name');
+            $table->string('file_size');
+            $table->timestamps();
+        });
+    }
+
+    Los datos de la imagen
+
