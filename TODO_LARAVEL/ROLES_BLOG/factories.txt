@@ -1,0 +1,33 @@
+$factory->define(App\Category::class, function (Faker $faker) {
+    $title=$faker->sentence(4);
+    return [
+        'name' => $title,
+        'slug' => str_slug($title),
+        'body' => $faker->text(200),
+    ];
+});
+
+##################
+$factory->define(App\Post::class, function (Faker $faker) {
+    $title=$faker->sentence(4);
+    return [
+        'user_id' => rand(1,5),
+        'category_id' => rand(1,20),
+        'name' => $title,
+        'slug' => str_slug($title),
+        'excerpt' => $faker->text(200),
+        'file'=> $faker->imageUrl($width=1200, $height=400),
+        'body' => $faker->text(200),
+        'status' => $faker->randomElement(['DRAFT','PUBLISHED']),
+    ];
+});
+
+####################
+
+$factory->define(App\Tag::class, function (Faker $faker) {
+    $title=$faker->unique()->word(5); //unico de 5 palabras
+    return [
+        'name' => $title,
+        'slug' => str_slug($title),
+    ];
+});
