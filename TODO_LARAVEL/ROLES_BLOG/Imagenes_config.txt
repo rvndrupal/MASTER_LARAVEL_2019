@@ -1,0 +1,52 @@
+######### Store
+ public function store(PostStoreRequest $request)
+    {
+        $post = Post::create($request->all());
+        $this->authorize('pass', $post);
+
+        //IMAGE
+        if($request->file('image')){
+            $path = Storage::disk('public')->put('image',  $request->file('image'));
+            $post->fill(['file' => asset($path)])->save();
+        }
+
+        //TAGS
+        $post->tags()->attach($request->get('tags'));
+
+        return redirect()->route('posts.index', $post->id)->with('info', 'Entrada creada con éxito');
+    }
+
+
+ public function update(PostUpdateRequest $request, $id)
+    {
+        $post = Post::find($id);
+        $this->authorize('pass', $post);
+
+        $post->fill($request->all())->save();
+
+        //IMAGE
+        if($request->file('image')){
+            $path = Storage::disk('public')->put('image',  $request->file('image'));
+            $post->fill(['file' => asset($path)])->save();
+        }
+
+        //TAGS
+        $post->tags()->sync($request->get('tags'));  //muy importante para las tablas pivote
+
+        return redirect()->route('posts.index', $post->id)->with('info', 'Entrada actualizada con éxito');
+    }
+
+#############################################################
+Configurar en donde se guarda.
+
+config->filesystem.php
+
+'public' => [
+            'driver' => 'local',
+            //'root' => storage_path('app/public'), esta se cambia
+            'root' => public_path(),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+],
+
+Para que quede en los archivos publicos

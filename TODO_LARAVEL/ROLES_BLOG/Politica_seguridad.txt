@@ -1,0 +1,26 @@
+1.- se crea una carpeta Policies
+
+ public function pass(User $user, Post $post)
+    {
+        return $user->id == $post->user_id;
+    }
+
+Valida si el user->id  es el mismo que postea el user_id
+
+
+######################################
+Por ultimo se agrega en:
+
+app->providers->AuthServiceProvider
+
+se agregan los modelos y el Policies
+
+use App\Post;
+use App\Policies\PostPolicy;
+//estos dos se dan de alta
+
+
+ protected $policies = [
+        'App\Model' => 'App\Policies\ModelPolicy',
+        Post::class => PostPolicy::class  //este es el que importa
+    ];
