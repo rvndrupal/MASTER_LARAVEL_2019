@@ -1,0 +1,8 @@
+"Rutas_consola":{
+	 	"prefix": "rutas_resource",
+	 	"body": [
+	 		"Route::resource(${1:modelo}, ${2:Controlador});",
+	 		"$3"
+	 	],
+	 	"description": "Log output to console"
+	 }

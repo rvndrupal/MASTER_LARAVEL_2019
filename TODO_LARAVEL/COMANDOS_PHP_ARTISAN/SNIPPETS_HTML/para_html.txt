@@ -1,0 +1,24 @@
+"Mostrar log":{
+		"prefix": "ccc",
+		"body": [
+		"console.log('$1');",
+		"$2"
+		 ],
+		 "description": "Mostrar un console log"
+
+	},
+
+	"Comentarios manual":{
+		"prefix": "comentario_m",
+		"body": [
+		"------------------------------------------------------",
+		"${1:titulo}",
+		"##############################",
+		"${2:codigo}",
+		"##############################",
+		"------------------------------------------------------",
+		"$3",
+		],
+		 "description": "Comentario manuales"
+
+	},
