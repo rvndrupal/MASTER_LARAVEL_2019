@@ -1,0 +1,44 @@
+*{
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   text-decoration:none;
+   font-family: sans-serif;
+
+}
+
+.cajas{
+   width: 150px;
+   height: 100px;
+   background: blue;
+   cursor: pointer;
+   position:relative;
+   margin: 30px;
+}
+
+input{
+   padding: 10px;
+}
+
+button{
+   padding: 10px;
+}
+
+.cajados{
+   width: 150px;
+   height: 100px;
+   background: blue;
+   margin:30px;
+   
+}
+
+.texto{
+   background: rgb(185, 31, 31);
+   color: white;
+   margin: 50px
+}
+
+#cambio{
+   background: rgba(17, 17, 143, 0.486);
+   color: red;
+}

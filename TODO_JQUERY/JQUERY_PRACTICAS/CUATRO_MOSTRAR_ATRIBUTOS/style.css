@@ -1,0 +1,33 @@
+*{
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   text-decoration:none;
+   font-family: sans-serif;
+
+}
+
+.cajas{
+   width: 150px;
+   height: 100px;
+   background: blue;
+   cursor: pointer;
+   position:relative;
+   margin: 30px;
+}
+
+input{
+   padding: 10px;
+}
+
+button{
+   padding: 10px;
+}
+
+#cajados{
+   width: 150px;
+   height: 100px;
+   background: blue;
+   margin-top: 100px;
+   
+}
