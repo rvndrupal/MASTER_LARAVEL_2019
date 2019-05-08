@@ -1,0 +1,44 @@
+------------------------------------------------------
+Agregar la libreria de chosen
+##############################
+https://harvesthq.github.io/chosen/
+
+Una vez que se descargan agregar los archivos de la carpetas y la imagen 
+
+##############################
+------------------------------------------------------
+
+------------------------------------------------------
+Agregar el script en el layout principal
+##############################
+@yield('scripts')
+
+
+por ultimo el código
+
+
+<h3>Lista de Permisos</h3>
+<div class="form-group">
+        {{ Form::select('permissions[]', $permissions, null, ['class' => 'form-control select_permissions','multiple']) }}
+</div>
+
+
+
+
+@section('scripts')
+<link rel="stylesheet" href="{{ asset('css/chosen.min.css') }}">
+<script src="{{ asset('js/chosen.jquery.min.js') }}"></script>
+
+    <script>
+    $('.select_permissions').chosen({
+        placeholder_text_multiple:'Seleccione una opción ',
+        no_results_text: 'No se encontro el permiso',
+
+    });
+    </script>
+
+
+@endsection
+
+##############################
+------------------------------------------------------
