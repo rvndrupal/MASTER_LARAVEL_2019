@@ -22,11 +22,11 @@ $alumnos[3] = "Laura";
 $alumnos[4] = "Pedro";
 $alumnos[5] = "Pablo";
 
-array_push($meses,"Treceavo mes","Catorceavo mes");
-array_unshift($dias, "primero","primerisimo");
+array_push($meses,"Treceavo mes","Catorceavo mes"); //agrega al final del arreglo
+array_unshift($dias, "primero","primerisimo"); //agrega al princio del arreglo
 $mesPrimero = array_shift($meses);
-$mesesNuevos = array_slice($meses,11,2);
-$diasElimiminados = array_splice($dias, 5, 2);
+$mesesNuevos = array_slice($meses,11,2); //slice solo copia
+$diasElimiminados = array_splice($dias, 5, 2); //copia y elimina
 
 $mesesDias = array_merge($meses,$dias);
 foreach ($mesesDias as $key => $value) {
