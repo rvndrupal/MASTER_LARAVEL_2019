@@ -12,7 +12,11 @@
 
         <div id="app">
 
-            {{ saludo }}
+            <input type="text" v-model="a"><br>
+            <input type="text" v-model="b"><br>
+            <button @click="total">Sumar</button>
+            <hr>
+            Suma: {{ total }}
 
         </div>
 

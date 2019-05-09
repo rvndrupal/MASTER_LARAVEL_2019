@@ -3,7 +3,7 @@ new Vue({
 
     data (){
         return{
-            saludo: "Hola desde esto es el primer hola mundo"
+            nombre: 'rodrigo',
         }
         
     }
