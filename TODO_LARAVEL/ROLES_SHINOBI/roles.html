@@ -1,0 +1,17 @@
+pagina->  https://github.com/caffeinated/shinobi/wiki/Role-Permissions
+
+
+Dentro del controlador seria.
+
+public function __construct(){
+
+    $this->middleware('permission:posts.create')->only(['create', 'store']);
+    $this->middleware('permission:posts.index')->only(['index']);
+    $this->middleware('permission:posts.edit')->only(['edit', 'update']);
+    $this->middleware('permission:posts.show')->only(['show']);
+    $this->middleware('permission:posts.destroy')->only(['destroy']);
+    
+}
+
+
+

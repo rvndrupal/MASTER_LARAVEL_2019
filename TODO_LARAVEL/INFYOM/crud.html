@@ -1,0 +1,50 @@
+Documentación http://labs.infyom.com/laravelgenerator/docs/5.7/installation
+
+1.-Agregar 
+
+"infyomlabs/laravel-generator": "5.7.x-dev",
+    "laravelcollective/html": "^5.7.0",
+    "infyomlabs/adminlte-templates": "5.7.x-dev"
+
+en composer.json
+
+2.-
+
+providers  config->app
+
+Collective\Html\HtmlServiceProvider::class,
+Laracasts\Flash\FlashServiceProvider::class,
+Prettus\Repository\Providers\RepositoryServiceProvider::class,
+\InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
+\InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class, 
+
+
+
+3.-Aliases
+
+'Form'      => Collective\Html\FormFacade::class,
+'Html'      => Collective\Html\HtmlFacade::class,
+'Flash'     => Laracasts\Flash\Flash::class,
+
+
+4.- por ultimo  composer update
+  
+
+  php artisan infyom:publish
+
+
+  ------------------------------------------------------
+  Generar crud
+  ##############################
+  php artisan infyom:scaffold $MODEL_NAME
+
+  php artisan infyom:scaffold Ponente
+
+  nombre string text
+
+  required
+
+
+  ##############################
+  ------------------------------------------------------
+  
