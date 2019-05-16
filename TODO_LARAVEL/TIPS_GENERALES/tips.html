@@ -18,3 +18,41 @@ composer require barryvdh/laravel-debugbar --dev
 ##############################
 ------------------------------------------------------
 
+------------------------------------------------------
+Mejorar las consultas
+##############################
+$forums=Forum::with(['post'])->paginate(20); //mejora la consulta brutalmente
+##############################
+------------------------------------------------------
+
+------------------------------------------------------
+Crear url amigables.
+##############################
+Crear campo slug
+
+Factoria.
+
+$title = $faker->sentence;
+    return [
+        'user_id' => \App\User::all()->random()->id,
+        'forum_id' => \App\Forum::all()->random()->id,
+	    'title' => $title,
+	    'slug' => str_slug($title, '-'),
+	    "description" => $faker->paragraph,
+        'attachment' => \Faker\Provider\Image::image(storage_path() . '/app/posts', 200, 200, 'technics', false),
+    ];
+
+La parte mas importante para que tome el slug como la ruta ir al modelo i poner lo siguiente.
+
+public function getRouteKeyName() {
+    return 'slug';
+}
+
+####Esto crea que las rutas pasen a slug ojo cambiar las rutas al slug 
+
+<a href="/forums/{{ $forum->slug }}">{{ $forum->name }}</a>  //ejemplo
+
+
+##############################
+------------------------------------------------------
+

@@ -1,0 +1,57 @@
+------------------------------------------------------
+Relaciones uno a uno
+##############################
+para las relaciones uno a uno
+
+https://www.youtube.com/watch?v=wtW6iw4cE-4&list=PLzkSGe42b58PDIOwuzkWq3zs-9uj1CzXI&index=26
+
+
+####  Ejemplo tabla usuarios con la sector
+
+la tablas sector quedaria.
+
+$table->increments('id');
+$table->string('name');
+
+$table->integer('user_id')->unsigned();
+$table->foreign('user_id')->references('id')->('users');
+
+
+
+###### Modelo #############
+
+Para el modelo USER
+
+public function sector()
+{
+    return $this->hasOne('App\Sector');  ->Va a buscar un campo user_id  con el que tenemos la relacion 
+
+    return $this->hasOne(Sector::class); -> Otra manera.
+
+    ###### otra manera si quiero ponerle cualquier nombre al campo a relacionar #########
+
+    return $this->hasOne('Sector','[nombre-campo]');  -> se le pone el nombre del campo con el que se va a relacionar sin los corchetes
+}
+
+#####################
+Su consulta ejemplo 
+$phone = User::find(1)->sector;
+
+
+####################
+
+
+Para el modelo SECTOR la inversa
+
+public function user()
+{
+    return $this->belongsTo('App\User'); //aplica las mismas reglas pero esta es la inversa
+
+}
+
+
+
+
+
+##############################
+------------------------------------------------------
