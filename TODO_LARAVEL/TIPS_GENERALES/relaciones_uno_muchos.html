@@ -1,0 +1,53 @@
+------------------------------------------------------
+Relaciones uno a muchos
+##############################
+Relaciones de tipo uno a muchos
+
+Usuario -> Post  //un usuario tiene muchos post y un post solo puede tener un usuario
+
+
+
+Para el modelo "USER"
+
+public function posts()
+{
+    return $this->hasMany('App\Post'); las mismas reglas que uno a uno  ojo con la "s" de posts
+}
+
+##############Las mismas reglas##############
+
+return $this->hasMany('App\Comment', 'foreign_key');
+
+return $this->hasMany('App\Comment', 'foreign_key', 'local_key');
+
+#############################################
+
+############ Consulta ejemplo ######
+$comments = User::find(1)->posts;
+
+$comment = App\Post::find(1)->comments()->where('title', 'foo')->first();
+
+#######################################
+
+
+
+
+Para el model "POST"
+
+public function user()
+{
+    return $this->belongsTo('App\User');
+}
+
+
+--------------------  Consulta simple -----------------------------------
+$post = Post::find(1);
+------------------------------------------------------
+
+
+
+
+
+
+
+------------------------------------------------------
