@@ -1,0 +1,28 @@
+https://styde.net/pivot-tables-con-eloquent-en-laravel/
+
+Consultas tablas muchos a muchos
+
+#######################  Consulta muchos a muchos valores #####################
+
+$user = User::find(1);
+
+//obteniendo los menus asociados al User
+foreach ($user->menu as $menu) {
+    //obteniendo los datos de un menu específico
+    echo $menu->name;
+    echo $menu->url;
+    //obteniendo datos de la tabla pivot por menu
+    echo $menu->pivot->task_id;
+    echo $menu->pivot->status;
+}
+
+//obteniendo los tasks asociados al User
+foreach ($user->tasks as $task) {
+    //obteniendo los datos de un task específico
+    echo $task->name;
+    //obteniendo datos de la tabla pivot por task
+    echo $task->pivot->menu_id;
+    echo $task->pivot->status;
+}
+
+###########################################################
