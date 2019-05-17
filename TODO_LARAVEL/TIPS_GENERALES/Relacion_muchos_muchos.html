@@ -1,0 +1,79 @@
+------------------------------------------------------
+Relacion muchos a muchos
+##############################
+Relacion de muchos se tiene que tener una tabla pivote y se relacionan por orden
+
+Se crea la tabla pivote
+
+php artisan make:migrate create_role_user_table   --> el orden es muy importante.
+
+Las tablas user y roles van normales donde se hace la relación  es en la pivote.
+
+
+#######################  Tabla #####################
+
+Esto es en la tabla pivote
+
+    $table->integer('role_id')->unsigned();
+    $table->integer('user_id')->unsigned();
+
+
+    $table->foreign('role_id')->references('id')->('roles');
+    $table->foreign('user_id')->references('id')->('users');
+
+
+###########################################################
+
+
+
+#######################  MODELO USER #####################
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role');  las mismas reglas.
+    }
+
+    "CONSULTAS"
+
+    $user=App\User::findOrFail(1);
+
+    return $user->roles;
+
+###########################################################
+
+
+#######################  MODELO ROLES #####################
+
+    public function users()
+    {
+        return $this->belongsToMany('App\User');  //Mismas reglas.
+    }
+
+    "CONSULTAS"
+
+    $role=App\Role::findOrFail(1);
+
+    return $role->users();   ///recordar esto es lo de las relaciones.
+
+###########################################################
+
+
+#######################  ASIGNAR ROLES POR CODIGO #####################
+
+   $user=App\User::findOrFail(2);
+
+   $user->roles()->attach(1);  //al usuario 2 se le asigna el rol 1 no es la mejor opcion
+
+   $user->roles()->sycn(1);  //esta elimina todas las asignaciones y solo agrega una sola no se repiten --> esta es la mejor.
+
+###########################################################
+
+
+
+
+
+
+
+
+##############################
+------------------------------------------------------

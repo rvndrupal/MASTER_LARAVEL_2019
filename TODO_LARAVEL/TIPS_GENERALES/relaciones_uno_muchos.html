@@ -5,6 +5,16 @@ Relaciones de tipo uno a muchos
 
 Usuario -> Post  //un usuario tiene muchos post y un post solo puede tener un usuario
 
+#######################  Primero la migración igual que siempre #####################
+ESto seria en el ejemplo en la tabla post
+
+$table->increments('id');
+$table->string('name');
+
+$table->integer('user_id')->unsigned();
+$table->foreign('user_id')->references('id')->('users');
+###########################################################
+
 
 
 Para el modelo "USER"
