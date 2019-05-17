@@ -5,7 +5,7 @@ Relacion de muchos se tiene que tener una tabla pivote y se relacionan por orden
 
 Se crea la tabla pivote
 
-php artisan make:migrate create_role_user_table   --> el orden es muy importante.
+php artisan make:migration create_role_user_table   --> el orden es muy importante.
 
 Las tablas user y roles van normales donde se hace la relación  es en la pivote.
 
@@ -14,12 +14,12 @@ Las tablas user y roles van normales donde se hace la relación  es en la pivote
 
 Esto es en la tabla pivote
 
-    $table->integer('role_id')->unsigned();
-    $table->integer('user_id')->unsigned();
+$table->unsignedInteger('user_id');
+$table->foreign('user_id')->references('id')->on('users');
 
 
-    $table->foreign('role_id')->references('id')->('roles');
-    $table->foreign('user_id')->references('id')->('users');
+$table->unsignedInteger('roles_id');
+$table->foreign('roles_id')->references('id')->on('roles');
 
 
 ###########################################################
