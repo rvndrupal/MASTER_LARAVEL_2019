@@ -1,0 +1,59 @@
+------------------------------------------------------
+Relaciones a Distancia.
+##############################
+Relaciones a Distancia.
+
+https://www.youtube.com/watch?v=c36gWGpU7sA&list=PLzkSGe42b58PDIOwuzkWq3zs-9uj1CzXI&index=29
+
+-->Tiene muchos a travez de: 
+
+-->Poder acceder a una relación a distancia por medio de otra relación.
+
+<img src="imagenes/Relacion.PNG" alt="">
+
+-->Las tablas son user, country, post la tabla country va normal.
+
+--> user queda   <img src="imagenes/user.PNG" alt="">
+
+-->post queda <img src="imagenes/post.PNG" alt="">
+
+-->recordar que pa las migraciones son asi.
+
+-->Se hacen las migraciones de nuevo
+
+#######################  Relciones #####################
+
+$table->unsignedInteger('user_id');
+$table->foreign('user_id')->references('id')->on('users');
+
+###########################################################
+
+
+
+#######################  Modelo Country #####################
+
+public function posts()
+{
+    return $this->hasManyThrough('App\Post' , 'App\User');  --> un pais puede tener muchos post a travez de un Usuario.
+}
+
+<img src="imagenes/Parametros.PNG" alt="">
+
+###########################################################
+
+#######################  Consultas #####################
+
+$country=Country::find(1);
+
+return $country->posts;   -->con eso queda. por el intermedio que es user
+
+<img src="imagenes/prueba.PNG" alt="">
+
+###########################################################
+
+
+
+
+
+##############################
+------------------------------------------------------
