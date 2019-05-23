@@ -1,0 +1,105 @@
+------------------------------------------------------
+Relaciones Polimorficas
+##############################
+
+Dos tablas que queremos que tengan comentarios compartidos o a "n"  tablas que tengan comentarios.
+
+Se crean post, videos, comment.
+
+
+#######################  Tabla Post #####################
+
+Normal
+
+###########################################################
+
+#######################  Videos #####################
+
+Normal
+
+###########################################################
+
+#######################  Comentarios #####################
+
+Se agergan lo siguiente.
+
+los importantes son: 
+
+--> $table->integer('commentable_id')->unsigned();  //el id del model
+--> $tabla->string('commentable_type');  //El nombre del modelo
+
+se hacen las migraciones.
+###########################################################
+
+
+
+#######################  Modelo de comentarios #####################
+
+public function commentable()  //el nombre es importante es el que se llama en los modelos.
+{
+    return $this->morphTo();  //que se puede transformar a cualquier tipo de modelo
+}
+
+###########################################################
+
+
+#######################  Modelo post #####################
+
+public function comments()  //muchos
+{
+    return $this->morphMany('App\Post','commentable');  //el nombre de mophTo
+}
+
+###########################################################
+
+
+#######################  Modelo Videos #####################
+
+public function comments()  //muchos
+{
+    return $this->morphMany('App\Video','commentable');  //el nombre de mophTo
+}
+
+###########################################################
+
+
+#######################  Creamos los Comentarios #####################
+
+    $post= App\Post::find(1);
+
+    $post->comments()->create(['content'] => 'Comentario para est post');
+
+
+    $video= App\Video::find(1);
+
+    $video->comments()->create(['content'] => 'Comentario para este video');
+
+###########################################################
+
+
+#######################  Como se muestran #####################
+
+$video=App\video::find(1);
+
+return $video->comments;
+
+###########################################################
+
+
+#######################  Tipo de morp #####################
+
+Pueden ser:
+
+--> $this->morphMany 
+--> $this->morphOne    
+
+###########################################################
+
+
+
+
+
+
+
+##############################
+------------------------------------------------------

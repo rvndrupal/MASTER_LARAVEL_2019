@@ -24,3 +24,48 @@ Directo.
 Crear un archivo Seeder
 
 php artisan make:seed User
+
+
+Ejemplos
+
+$factory->define(App\Category::class, function (Faker $faker) {
+	return [
+		'name' => $faker->word
+	];
+});
+
+########################
+
+
+$factory->define(App\Forum::class, function (Faker $faker) {
+	$name = $faker->sentence;
+    return [
+        "name" => $name,
+	    'slug' => str_slug($name, '-'),
+	    "description" => $faker->paragraph
+    ];
+});
+
+#############################
+
+$factory->define(App\Post::class, function (Faker $faker) {
+	$title = $faker->sentence;
+    return [
+        'user_id' => \App\User::all()->random()->id,
+        'forum_id' => \App\Forum::all()->random()->id,
+	    'title' => $title,
+	    'slug' => str_slug($title, '-'),
+	    "description" => $faker->paragraph,
+        'attachment' => \Faker\Provider\Image::image(storage_path() . '/app/posts', 200, 200, 'technics', false),
+    ];
+});
+
+################################
+$factory->define(App\Reply::class, function (Faker $faker) {
+    return [
+	    'user_id' => App\User::all()->random()->id,
+	    'post_id' => App\Post::all()->random()->id,
+	    "reply" => $faker->paragraph,
+	    'attachment' => \Faker\Provider\Image::image(storage_path() . '/app/replies', 200, 200, 'animals', false),
+    ];
+});
